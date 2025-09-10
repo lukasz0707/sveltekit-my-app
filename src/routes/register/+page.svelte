@@ -17,6 +17,13 @@
 	$: isFormValid = isEmailValid && isPasswordValid && confirmIsPasswordValid;
 </script>
 
+<svelte:head>
+	<meta
+		name="description"
+		content="Register your account to access our platform. Fast and secure sign up with email or social login with google."
+	/>
+</svelte:head>
+
 <div class="flex h-screen items-center justify-center bg-gray-50 dark:bg-gray-900">
 	<div
 		class="mx-auto flex w-full flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0"

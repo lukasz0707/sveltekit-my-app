@@ -7,6 +7,8 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>sveltekit-my-app</title>
+	<meta name="description" content="Main page." />
 </svelte:head>
 
 {@render children?.()}
