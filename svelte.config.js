@@ -13,11 +13,14 @@ const config = {
 		}),
 		// For github pages setup below
 		paths: {
-			// This must match your GitHub repository name exactly.
-			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
-		}
+			base: process.env.BASE_PATH || ''
+		},
 		// This tells SvelteKit to not prerender any pages by default.
 		// It will only prerender pages with `export const prerender = true`.
+		prerender: {
+			// Ignore any routes that are not explicitly prerendered to prevent the build from failing.
+			handleUnseenRoutes: 'ignore'
+		}
 	}
 };
 
