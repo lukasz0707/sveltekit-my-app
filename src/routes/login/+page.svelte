@@ -1,0 +1,65 @@
+<script lang="ts">
+	import EmailField from '$lib/components/form_fields/EmailField.svelte';
+	import PasswordField from '$lib/components/form_fields/PasswordField.svelte';
+	import GoogleLogo from '$lib/components/icons/GoogleLogo.svelte';
+	import { Button } from 'flowbite-svelte';
+	import favicon from '$lib/assets/favicon.svg';
+
+	let emailValue: string = '';
+	let passwordValue: string = '';
+
+	let isEmailValid: boolean = false;
+	let isPasswordValid: boolean = false;
+
+	$: isFormValid = isEmailValid && isPasswordValid;
+</script>
+
+<div class="flex h-screen items-center justify-center bg-gray-50 dark:bg-gray-900">
+	<div
+		class="mx-auto flex w-full flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0"
+	>
+		<a href="/" class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white">
+			<img class="mr-2 h-8 w-8" src={favicon} alt="logo" />
+			Flowbite
+		</a>
+		<div
+			class="w-full rounded-lg bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800"
+		>
+			<div class="space-y-4 p-6 sm:p-8 md:space-y-6">
+				<h1
+					class="text-xl leading-tight font-bold tracking-tight text-gray-900 md:text-2xl dark:text-white"
+				>
+					Sign in to account
+				</h1>
+				<form class="space-y-4 md:space-y-6" action="#">
+					<EmailField value={emailValue} bind:isValid={isEmailValid} />
+					<PasswordField value={passwordValue} bind:isValid={isPasswordValid} />
+					<Button
+						type="submit"
+						class="w-full cursor-pointer disabled:cursor-not-allowed"
+						disabled={!isFormValid}>Sign in</Button
+					>
+				</form>
+
+				<div
+					class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-gray-300 after:mt-0.5 after:flex-1 after:border-t after:border-gray-300"
+				>
+					<p class="mx-4 mb-0 text-center font-semibold text-gray-500 dark:text-gray-300">or</p>
+				</div>
+				<Button class="w-full cursor-pointer" color="alternative">
+					<GoogleLogo />
+					Sign in with Google
+				</Button>
+				<p class="text-sm font-light text-gray-500 dark:text-gray-400">
+					Don’t have an account yet? <a
+						href="/register"
+						class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a
+					>
+				</p>
+				<a href="/" class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+					>Home Page</a
+				>
+			</div>
+		</div>
+	</div>
+</div>
