@@ -33,7 +33,7 @@ jobs:
           # --- Debugging Step ---
           echo "Value of BASE_PATH: $BASE_PATH"
           # ----------------------
-          pnpm build:gh-pages
+          pnpm build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3

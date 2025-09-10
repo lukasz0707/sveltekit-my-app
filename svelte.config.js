@@ -13,7 +13,7 @@ const config = {
 		}),
 		// For github pages setup below
 		paths: {
-			base: process.env.BASE_PATH || ''
+			base: '/sveltekit-my-app'
 		},
 		// This tells SvelteKit to not prerender any pages by default.
 		// It will only prerender pages with `export const prerender = true`.
