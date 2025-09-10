@@ -4,6 +4,7 @@
 	import PasswordAndConfirmPassword from '$lib/components/form_fields/PasswordAndConfirmPassword.svelte';
 	import GoogleLogo from '$lib/components/icons/GoogleLogo.svelte';
 	import favicon from '$lib/assets/favicon.svg';
+	import { base } from '$app/paths';
 
 	let emailValue: string = '';
 	let passwordValue: string = '';
@@ -20,7 +21,10 @@
 	<div
 		class="mx-auto flex w-full flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0"
 	>
-		<a href="/" class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white">
+		<a
+			href="{base}/"
+			class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
+		>
 			<img class="mr-2 h-8 w-8" src={favicon} alt="logo" />
 			Flowbite
 		</a>
@@ -50,7 +54,7 @@
 						<Checkbox id="terms" class="cursor-pointer">
 							I accept the <a
 								class="font-medium text-primary-600 hover:underline dark:text-primary-500"
-								href="/">Terms and Conditions</a
+								href={base}>Terms and Conditions</a
 							>
 						</Checkbox>
 					</div>
@@ -73,7 +77,7 @@
 				</Button>
 				<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 					Already have an account? <a
-						href="/login"
+						href="{base}/login"
 						class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a
 					>
 				</p>

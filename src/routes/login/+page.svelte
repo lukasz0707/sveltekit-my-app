@@ -4,6 +4,7 @@
 	import GoogleLogo from '$lib/components/icons/GoogleLogo.svelte';
 	import { Button } from 'flowbite-svelte';
 	import favicon from '$lib/assets/favicon.svg';
+	import { base } from '$app/paths';
 
 	let emailValue: string = '';
 	let passwordValue: string = '';
@@ -18,7 +19,10 @@
 	<div
 		class="mx-auto flex w-full flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0"
 	>
-		<a href="/" class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white">
+		<a
+			href={base}
+			class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
+		>
 			<img class="mr-2 h-8 w-8" src={favicon} alt="logo" />
 			Flowbite
 		</a>
@@ -52,11 +56,11 @@
 				</Button>
 				<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 					Don’t have an account yet? <a
-						href="/register"
+						href="{base}/register"
 						class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a
 					>
 				</p>
-				<a href="/" class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+				<a href={base} class="font-medium text-primary-600 hover:underline dark:text-primary-500"
 					>Home Page</a
 				>
 			</div>
