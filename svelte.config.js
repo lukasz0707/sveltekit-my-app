@@ -9,7 +9,11 @@ const config = {
 	kit: {
 		adapter: adapter({
 			fallback: '404.html'
-		})
+		}),
+		paths: {
+			// This must match your GitHub repository name exactly.
+			base: process.env.NODE_ENV === 'production' ? '/sveltekit-my-app' : ''
+		}
 	}
 };
 
