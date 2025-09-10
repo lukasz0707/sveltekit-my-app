@@ -12,24 +12,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v3
         with:
           version: 8
 
-      - name: Setup Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm i
 
-      - name: Build with base path
+      - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-        run: pnpm build
+        run: |
+          # --- Debugging Step ---
+          echo "Value of BASE_PATH: $BASE_PATH"
+          # ----------------------
+          pnpm run build
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
@@ -49,6 +53,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
